@@ -1,0 +1,38 @@
+<div>
+    <h2>Construye tu PC</h2>
+    <div>
+      <label>Tamaño de la RAM:</label>
+      @for (ram of optRAM; track ram.id) {
+          <input type="radio" value={{ram.value}} name="ram" id="ram{{ram.id}}" [(ngModel)]="selectedRAM">
+          <label for="ram{{ram.id}}">{{ram.label}}</label>
+      }
+  </div>
+    <div>
+      <label>Tipo de procesador :</label>
+        <select [(ngModel)]="selectedProcesador" name="procesadores" id="">
+          @for (proc of optProcs; track proc.id) {
+            <option value={{proc.value}}>{{proc.label}}</option>
+          }
+        </select>
+      </div>   
+    <div>
+      <label>Tarjeta Gráfica :</label>
+      <input [(ngModel)]="TarjetaGrafica" type="checkbox" id="TjGrafica" >
+    </div>  
+    <div>
+      <label>Discos duros :</label>
+      @for (dd of optDD; track dd.id) {
+        <input type="radio" value={{dd.value}} name="dd" id="dd{{dd.id}}" [(ngModel)]="selectedDisco">
+        <label for="dd{{dd.id}}">{{dd.label}}</label>
+    }
+    </div>
+    <div>
+      <label>Fuentes de alimentacion :</label>
+        <select [(ngModel)]="selectedPU" name="PU" id="">
+          @for (pu of optPU; track pu.id) {
+            <option value={{pu.value}}>{{pu.label}}</option>
+          }
+        </select>
+      </div>
+      <button type="button" (click)="mostrar()">Mostrar Información</button>
+  </div>
